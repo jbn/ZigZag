@@ -1,0 +1,7 @@
+.ipynb_checkpoints/*
+MANIFEST
+dist/
+*.pyc
+build/*
+ZigZag.iml
+.idea/*
