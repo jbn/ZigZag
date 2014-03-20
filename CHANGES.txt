@@ -4,3 +4,5 @@ v0.1.1, 2014-02-25 -- Change README.txt to README.rst so that Github will
                       process it correctly.
 v0.1.2, 2014-03-20 -- FIX bug that caused install error due to changed README
                       file name. 
+v0.1.3, 2014-03-20 -- FIX of previous FIX. Apparently, I don't understand the 
+                      README.rst usage pattern.
