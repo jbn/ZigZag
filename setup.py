@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ZigZag',
-    version='0.1.1',
+    version='0.1.2',
     packages=['zigzag'],
     license='BSD-new license',
     description='Python package finding peaks and valleys of time series data.',
