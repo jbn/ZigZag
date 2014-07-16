@@ -181,7 +181,8 @@ def pivots_to_modes(pivots):
 def peak_valley_pivots_candlestick(close, high, low, up_thresh, down_thresh):
     """
     Finds the peaks and valleys of a series of HLC (open is not necessary).
-
+    TR: This is modified peak_valley_pivots function in order to find peaks and valleys for OHLC.
+     
     Parameters
     ----------
     close : This is series with closes prices.
@@ -197,7 +198,7 @@ def peak_valley_pivots_candlestick(close, high, low, up_thresh, down_thresh):
 
     Using Pandas
     ------------
-    For the most part, X may be a pandas series. However, the index must
+    For the most part, close, high and low may be a pandas series. However, the index must
     either be [0,n) or a DateTimeIndex. Why? This function does X[t] to access
     each element where t is in [0,n).
 
