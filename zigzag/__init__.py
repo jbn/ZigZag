@@ -184,9 +184,9 @@ def peak_valley_pivots_candlestick(close, high, low, up_thresh, down_thresh):
 
     Parameters
     ----------
-    close : This is series with close prices.
-    high : This is series with close prices.
-    low : This is series with close prices.
+    close : This is series with closes prices.
+    high : This is series with highs  prices.
+    low : This is series with lows prices.
     up_thresh : The minimum relative change necessary to define a peak.
     down_thesh : The minimum relative change necessary to define a valley.
 
