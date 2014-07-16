@@ -177,12 +177,12 @@ def pivots_to_modes(pivots):
             modes[t] = mode
     return modes
 
-@jit('i1[:](f8[:],f8,f8)')
+@jit('i1[:](f8[:],f8[:],f8[:],f8,f8)')
 def peak_valley_pivots_candlestick(close, high, low, up_thresh, down_thresh):
     """
     Finds the peaks and valleys of a series of HLC (open is not necessary).
     TR: This is modified peak_valley_pivots function in order to find peaks and valleys for OHLC.
-     
+
     Parameters
     ----------
     close : This is series with closes prices.
