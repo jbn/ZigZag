@@ -1,3 +1,17 @@
+.. image:: https://travis-ci.org/jbn/ZigZag.svg?branch=master
+    :target: https://travis-ci.org/jbn/ZigZag
+.. image:: https://ci.appveyor.com/api/projects/status/69kj3prrrieyp8q2/branch/master?svg=true
+    :target: https://ci.appveyor.com/project/jbn/ZigZag/branch/master 
+.. image:: https://img.shields.io/pypi/dm/ZigZag.svg
+    :target: https://pypi.python.org/pypi/ZigZag
+.. image:: https://coveralls.io/repos/github/jbn/ZigZag/badge.svg?branch=master
+    :target: https://coveralls.io/github/jbn/ZigZag?branch=master 
+.. image:: https://img.shields.io/pypi/v/ZigZag.svg
+    :target: https://pypi.python.org/pypi/ZigZag
+.. image:: https://img.shields.io/pypi/pyversions/ZigZag.svg
+    :target: https://pypi.python.org/pypi/ZigZag
+
+
 ======
 ZigZag
 ======
@@ -5,13 +19,7 @@ ZigZag
 ZigZag provides functions for identifying the peaks and valleys of a time
 series. Additionally, it provides a function for computing the maximum drawdown.
 
-If numba can be imported, it will be used to greatly accelerate the execution 
-time at the cost of a small initial compile. On my machine, the JIT'd code 
-executed about 38 times faster than the pure Python code. Numba is not an 
-install_requires package because numba can be a pain to install for some people. 
-`Learn more about numba here <http://numba.pydata.org/>`_.
-
-For fastest understanding, `view the IPython notebook demo tutorial <http://nbviewer.ipython.org/github/jbn/ZigZag/blob/master/zigzag_demo.ipynb>`_.
+For fastest understanding, `view the IPython notebook demo tutorial <https://github.com/jbn/ZigZag/blob/master/zigzag_demo.ipynb>`_.
 
 Contributing
 ------------
