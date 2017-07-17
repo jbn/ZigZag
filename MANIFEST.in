@@ -1,0 +1,5 @@
+include README.rst
+include requirements.txt
+include LICENSE
+zigzag/*.pyx
+
