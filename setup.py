@@ -69,12 +69,15 @@ EXT = Extension("*",
                                ('CYTHON_FAST_PYCCALL', '1')],
                 include_dirs=[".", np.get_include()])
 
+
 if __name__ == "__main__":
     setup(
         name=NAME,
         ext_modules=cythonize([EXT],
                               compiler_directives={'embedsignature': True,
                               'linetrace': True}),
+        package_data = {'zigzag': ['*.pxd']},
+        include_package_data=True,
         description=META_VARS["description"],
         license=META_VARS["license"],
         url=META_VARS["uri"],

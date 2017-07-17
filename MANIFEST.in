@@ -1,5 +1,5 @@
 include README.rst
 include requirements.txt
-include LICENSE
-zigzag/*.pyx
-
+include LICENSE.txt
+global-include *.pyx
+global-include *.pxd
