@@ -115,10 +115,17 @@ cpdef peak_valley_pivots(double [:] X,
                 last_pivot_x = x
                 last_pivot_t = t
 
-    if last_pivot_t == t_n-1:
+    # if last_pivot_t == t_n-1:
+    #     pivots[last_pivot_t] = trend
+    # elif pivots[t_n-1] == 0:
+    #     pivots[t_n-1] = -trend
+    
+    # fix last point error 
+    if last_pivot_t > 0 and last_pivot_t < t_n-1:
         pivots[last_pivot_t] = trend
-    elif pivots[t_n-1] == 0:
         pivots[t_n-1] = -trend
+    else:
+        pivots[t_n-1] = trend
 
     return pivots
 
