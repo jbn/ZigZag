@@ -1,6 +1,8 @@
 import codecs
 import re
 import os
+import sys
+
 from setuptools import setup, Extension, find_packages
 from Cython.Build import cythonize
 import numpy as np  # for np.get_include()
@@ -75,6 +77,7 @@ if __name__ == "__main__":
         name=NAME,
         ext_modules=cythonize([EXT],
                               compiler_directives={'embedsignature': True,
+                              'language_level': str(sys.version_info.major),
                               'linetrace': True}),
         package_data = {'zigzag': ['*.pxd']},
         include_package_data=True,
