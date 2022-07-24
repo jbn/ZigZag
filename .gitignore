@@ -1,4 +1,5 @@
 .ipynb_checkpoints/*
+.idea/
 htmlcov
 .coverage
 MANIFEST
@@ -9,3 +10,4 @@ zigzag/*.so
 zigzag/*.html
 zigzag/*.c
 ZigZag.egg-info
+zigzag.egg-info

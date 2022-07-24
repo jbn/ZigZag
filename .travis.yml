@@ -1,16 +1,21 @@
 language: python
+dist: focal
 python:
     - nightly
+    - 3.10
+    - 3.9
+    - 3.8
+    - 3.7
     - 3.6
     - 3.5
-    - 3.4
-    - 3.3
     - 2.7
+before_install:
+  - pip install poetry
 install:
-  - pip install -r requirements.txt
-  - pip install .
-  - pip install nose coveralls
+  - poetry install
+  - poetry build
 env:
   - CYTHON_DEBUG=1
-script: coverage run --source=zigzag setup.py nosetests
+script:
+  - poetry run pytest
 after_success: coveralls

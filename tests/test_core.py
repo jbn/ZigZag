@@ -2,7 +2,7 @@ import numpy as np
 import zigzag
 
 from unittest import TestCase
-from numpy.testing.utils import assert_array_equal, assert_array_almost_equal
+from numpy.testing import assert_array_equal, assert_array_almost_equal
 from zigzag import PEAK, VALLEY
 
 
@@ -140,11 +140,11 @@ class TestSegmentReturn(TestCase):
 class TestMaxDrawdown(TestCase):
     def test_strictly_increasing(self):
         data = np.linspace(1.0, 100.0, 10)
-        self.assertEquals(zigzag.max_drawdown(data), 0.0)
+        self.assertEqual(zigzag.max_drawdown(data), 0.0)
 
     def test_strictly_decreasing(self):
         data = np.linspace(100.0, 1.0, 10)
-        self.assertEquals(zigzag.max_drawdown(data), 0.99)
+        self.assertEqual(zigzag.max_drawdown(data), 0.99)
 
     def test_rise_fall_rise_drawdown(self):
         data = np.array([1.0, 1.05, 1.1, 1.0, 0.9, 1.5])
