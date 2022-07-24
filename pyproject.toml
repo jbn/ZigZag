@@ -26,3 +26,4 @@ script = "build.py"
 
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.0"
