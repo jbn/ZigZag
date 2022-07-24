@@ -10,7 +10,7 @@ python:
     - 3.5
     - 2.7
 install:
-  - pip install -r requirements.txt
+  #- pip install -r requirements.txt
   # https://github.com/pypa/setuptools/issues/3293
   - pip install --upgrade importlib-metadata
   - pip install .
