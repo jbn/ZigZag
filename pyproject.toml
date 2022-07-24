@@ -11,7 +11,9 @@ include = [{ path = "zigzag/**/*.so", format = "wheel" }]
 python = "^2.7"
 numpy = "^1.23.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.build]
+generate-setup-file = false
+script = "build.py"
 
 [build-system]
 requires = [
@@ -19,3 +21,5 @@ requires = [
     "Cython",
 ]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dev-dependencies]
