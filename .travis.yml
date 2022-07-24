@@ -12,7 +12,7 @@ python:
 install:
   - pip install -r requirements.txt
   # https://github.com/pypa/setuptools/issues/3293
-  #- pip install --upgrade importlib-metadata
+  - pip install --upgrade importlib-metadata
   - pip install .
   - pip install nose coveralls
 env:
