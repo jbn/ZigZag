@@ -11,11 +11,11 @@ python:
     - 2.7
 before_install:
   - pip install poetry
-  - pip install nose coveralls
+  - pip install pytest
 install:
   - poetry build
 env:
   - CYTHON_DEBUG=1
 script:
-  - poetry run coverage run --source=zigzag setup.py nosetests
+  - poetry run pytest
 after_success: coveralls
