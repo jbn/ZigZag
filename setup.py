@@ -98,5 +98,5 @@ if __name__ == "__main__":
         zip_safe=False,
         classifiers=CLASSIFIERS,
         install_requires=INSTALL_REQUIRES,
-        setup_requires=['Cython', "setuptools~=63.0.0"],
+        setup_requires=['Cython', "setuptools"],
     )
