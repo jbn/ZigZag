@@ -1,3 +1,10 @@
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+    "Cython~=0.29.6",
+]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "zigzag"
 version = "0.3.0"
@@ -15,11 +22,5 @@ numpy = "^1.23.1"
 generate-setup-file = false
 script = "build.py"
 
-[build-system]
-requires = [
-    "poetry-core>=1.0.0",
-    "Cython",
-]
-build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dev-dependencies]
