@@ -13,8 +13,9 @@ before_install:
   - pip install poetry
   - pip install nose coveralls
 install:
-  - python setup.py develop
+  - poetry build
 env:
   - CYTHON_DEBUG=1
-script: coverage run --source=zigzag setup.py nosetests
+script:
+  - poetry run coverage run --source=zigzag setup.py nosetests
 after_success: coveralls
