@@ -10,7 +10,7 @@ python:
     - 3.5
     - 2.7
 before_install:
-  - pip install poetry Cython
+  - pip install poetry
 install:
   - poetry build
 env:
