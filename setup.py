@@ -28,7 +28,6 @@ CLASSIFIERS = [
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -99,5 +98,5 @@ if __name__ == "__main__":
         zip_safe=False,
         classifiers=CLASSIFIERS,
         install_requires=INSTALL_REQUIRES,
-        setup_requires=['Cython'],
+        setup_requires=['Cython', "setuptools~=46.0.0"],
     )
