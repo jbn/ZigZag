@@ -16,30 +16,7 @@ PACKAGES = find_packages(where=".")
 
 META_PATH = os.path.join("zigzag", "__init__.py")
 
-KEYWORDS = ["statistics", "time series", "switchpoints"]
 
-CLASSIFIERS = [
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Science/Research",
-        "Natural Language :: English",
-        "License :: OSI Approved :: BSD License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-]
-
-INSTALL_REQUIRES = ['numpy']
 
 ###############################################################################
 
@@ -83,20 +60,16 @@ if __name__ == "__main__":
                               'linetrace': True}),
         package_data = {'zigzag': ['*.pxd']},
         include_package_data=True,
-        description=META_VARS["description"],
-        license=META_VARS["license"],
+        #description=META_VARS["description"],
+        #license=META_VARS["license"],
         url=META_VARS["uri"],
         version=META_VARS["version"],
-        author=META_VARS["author"],
-        author_email=META_VARS["email"],
-        maintainer=META_VARS["author"],
-        maintainer_email=META_VARS["email"],
-        keywords=KEYWORDS,
+        #author=META_VARS["author"],
+        #author_email=META_VARS["email"],
+        #maintainer=META_VARS["author"],
+        #maintainer_email=META_VARS["email"],
         long_description=read_file_safely("README.rst"),
         packages=PACKAGES,
         package_dir={"": "."},
         zip_safe=False,
-        classifiers=CLASSIFIERS,
-        install_requires=INSTALL_REQUIRES,
-        setup_requires=['Cython', "setuptools"],
     )
