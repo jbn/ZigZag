@@ -38,7 +38,7 @@ def build():
     distribution.package_dir = "extended"
 
     cmd = build_ext(distribution)
-    #cmd.ensure_finalized()
+    cmd.ensure_finalized()
     cmd.run()
 
     # Copy built extensions back to the project
