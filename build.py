@@ -13,6 +13,7 @@ libraries = ["m"]
 
 
 def build():
+    debug_mode_on = '1' if 'debug_mode_on' in os.environ else '0'
     extensions = [
         Extension(
             "*",
@@ -21,6 +22,10 @@ def build():
             extra_link_args=link_args,
             include_dirs=include_dirs,
             libraries=libraries,
+            define_macros=[('CYTHON_TRACE', debug_mode_on),
+                           ('CYTHON_TRACE_NOGIL', debug_mode_on),
+                           ('CYTHON_BINDING', debug_mode_on),
+                           ('CYTHON_FAST_PYCCALL', '1')],
         )
     ]
     ext_modules = cythonize(
@@ -33,7 +38,7 @@ def build():
     distribution.package_dir = "extended"
 
     cmd = build_ext(distribution)
-    cmd.ensure_finalized()
+    #cmd.ensure_finalized()
     cmd.run()
 
     # Copy built extensions back to the project
