@@ -12,6 +12,7 @@ python:
 before_install:
   - pip install poetry
 install:
+  - poetry install
   - poetry build
 env:
   - CYTHON_DEBUG=1
