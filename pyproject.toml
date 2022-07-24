@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zigzag"
+version = "0.3.0"
+dependencies = [
+    'numpy'
+]
+
+[tool.setuptools]
+include-package-data = true
