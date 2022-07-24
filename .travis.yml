@@ -1,4 +1,5 @@
 language: python
+dist: bionic
 python:
     - nightly
     - 3.10
