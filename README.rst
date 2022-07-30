@@ -1,9 +1,5 @@
-.. image:: https://travis-ci.org/jbn/ZigZag.svg?branch=master
-    :target: https://travis-ci.org/jbn/ZigZag
-.. image:: https://ci.appveyor.com/api/projects/status/69kj3prrrieyp8q2/branch/master?svg=true
-    :target: https://ci.appveyor.com/project/jbn/ZigZag/branch/master 
-.. image:: https://img.shields.io/pypi/dm/ZigZag.svg
-    :target: https://pypi.python.org/pypi/ZigZag
+.. image:: https://github.com/jbn/ZigZag/actions/workflows/build-and-test-package/badge.svg
+    :target: https://github.com/jbn/ZigZag/actions/workflows/build-and-test-python.yml
 .. image:: https://coveralls.io/repos/github/jbn/ZigZag/badge.svg?branch=master
     :target: https://coveralls.io/github/jbn/ZigZag?branch=master 
 .. image:: https://img.shields.io/pypi/v/ZigZag.svg
