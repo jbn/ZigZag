@@ -21,6 +21,4 @@ Contributing
 ------------
 This is an admittedly small project. Still, if you have any contributions, 
 please `fork this project on github <https://github.com/jbn/ZigZag>`_ and
-send me a pull request. You can email me, 
-`John B Nelson <http://blog.johnbnelson.com/>`_, at 
-`jbn@pathdependent.com <mailto:jbn@pathdependent.com>`_ with any questions. 
+send me a pull request.

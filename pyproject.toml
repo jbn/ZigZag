@@ -14,8 +14,11 @@ packages = [{ include = "zigzag" }]
 include = [{ path = "zigzag/**/*.so", format = "wheel" }]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
-numpy = ">=1.21.1"
+python = ">=3.7"
+numpy = [
+    { version = "<1.22.0", python = "<3.8" },
+    { version =  ">=1.21.1", python = ">=3.8" },
+]
 
 [tool.poetry.build]
 generate-setup-file = false
