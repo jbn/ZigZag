@@ -22,7 +22,7 @@ def build():
             extra_compile_args=compile_args,
             extra_link_args=link_args,
             include_dirs=include_dirs,
-            libraries=libraries,
+            libraries=libraries if os.name != 'nt' else [],
             define_macros=[('CYTHON_TRACE', debug_mode_on),
                            ('CYTHON_TRACE_NOGIL', debug_mode_on),
                            ('CYTHON_BINDING', debug_mode_on),
