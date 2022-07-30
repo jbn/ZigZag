@@ -1,5 +1,0 @@
-include README.rst
-include requirements.txt
-include LICENSE.txt
-global-include *.pyx
-global-include *.pxd
