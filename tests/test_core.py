@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+
 import zigzag
 
 from unittest import TestCase
@@ -158,3 +160,9 @@ class TestPivotsToModes(TestCase):
         expected_result = np.array([1, -1, -1, -1, -1, 1, 1, 1, -1, 1, 1])
 
         assert_array_equal(result, expected_result)
+
+
+def test_peak_valley_pivots_pandas_compat():
+    df = pd.DataFrame({'X': np.array([1, 2, 3, 4])})
+    got = zigzag.peak_valley_pivots(df.X, 0.2, -0.2)
+    assert (got == np.array([-1, 0, 0, 1])).all()

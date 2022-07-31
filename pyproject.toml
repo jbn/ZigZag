@@ -2,7 +2,7 @@
 requires = [
     "poetry-core>=1.0.0",
     "Cython>=^0.29",
-    "numpy",
+    "numpy >=1.21.1",
 ]
 build-backend = "poetry.core.masonry.api"
 
@@ -24,11 +24,8 @@ include = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7"
-numpy = [
-    { version = "<1.22.0", python = "<3.8" },
-    { version =  ">=1.21.1", python = ">=3.8" },
-]
+python = ">=3.8"
+numpy = ">=1.21.1"
 Cython = "^0.29"
 
 [tool.poetry.build]
@@ -37,6 +34,7 @@ script = "build.py"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
+pandas = ">=0.22,<2.0"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
