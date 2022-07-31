@@ -37,6 +37,10 @@ script = "build.py"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
+pandas = [
+    { version = "<0.22", python = "<3.8" },
+    { version =  ">=0.22,<2.0", python = ">=3.8" },
+]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
