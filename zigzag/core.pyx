@@ -44,8 +44,7 @@ cpdef int_t identify_initial_pivot(double [:] X,
     t_n = len(X)-1
     return VALLEY if x_0 < X[t_n] else PEAK
 
-def peak_valley_pivots(X, up_thresh, down_thresh):
-
+def _to_ndarray(X):
     # The type signature in peak_valley_pivots_detailed does not work for
     # pandas series because as of 0.13.0 it no longer sub-classes ndarray.
     # The workaround everyone used was to call `.values` directly before
@@ -57,6 +56,12 @@ def peak_valley_pivots(X, up_thresh, down_thresh):
         X = X.values
     elif isinstance(X, (list, tuple)):
         X = np.array(X)
+
+    return X
+
+
+def peak_valley_pivots(X, up_thresh, down_thresh):
+    X = _to_ndarray(X)
 
     # Ensure float for correct signature
     if not str(X.dtype).startswith('float'):
@@ -154,9 +159,19 @@ cpdef peak_valley_pivots_detailed(double [:] X,
     return pivots
 
 
+def max_drawdown(X) -> float:
+    X = _to_ndarray(X)
+
+    # Ensure float for correct signature
+    if not str(X.dtype).startswith('float'):
+        X = X.astype(np.float64)
+
+    return max_drawdown_c(X)
+
+
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef double max_drawdown(ndarray[double, ndim=1] X):
+cpdef double max_drawdown_c(ndarray[double, ndim=1] X):
     """
     Compute the maximum drawdown of some sequence.
 
@@ -214,5 +229,6 @@ def pivots_to_modes(int_t [:] pivots):
 def compute_segment_returns(X, pivots):
     """
     :return: numpy array of the pivot-to-pivot returns for each segment."""
+    X = _to_ndarray(X)
     pivot_points = X[pivots != 0]
     return pivot_points[1:] / pivot_points[:-1] - 1.0
