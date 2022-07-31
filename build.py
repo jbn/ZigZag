@@ -4,10 +4,10 @@ import sys
 from distutils.command.build_ext import build_ext
 from distutils.core import Distribution, Extension
 
-import numpy as np
 from Cython.Build import cythonize
+import numpy as np
 
-compile_args = ["-march=native", "-O3", "-msse", "-msse2", "-mfma", "-mfpmath=sse"]
+compile_args = ["-O3"]
 link_args = []
 include_dirs = [np.get_include()]
 libraries = ["m"]
