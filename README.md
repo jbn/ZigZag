@@ -15,5 +15,5 @@ For fastest understanding, [view the IPython notebook demo tutorial](https://git
 ## Contributing
 
 This is an admittedly small project. Still, if you have any contributions, 
-please `fork this project on github <https://github.com/jbn/ZigZag>`_ and
+please [fork this project on github](https://github.com/jbn/ZigZag) and
 send me a pull request.
