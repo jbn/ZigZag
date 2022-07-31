@@ -1,6 +1,8 @@
 [build-system]
 requires = [
     "poetry-core>=1.0.0",
+    "Cython>=^0.29",
+    "numpy",
 ]
 build-backend = "poetry.core.masonry.api"
 
