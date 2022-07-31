@@ -44,12 +44,21 @@ cpdef int_t identify_initial_pivot(double [:] X,
     t_n = len(X)-1
     return VALLEY if x_0 < X[t_n] else PEAK
 
-
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef peak_valley_pivots(double [:] X,
                          double up_thresh,
                          double down_thresh):
+    return peak_valley_pivots_detailed(X, up_thresh, down_thresh, True, False)
+
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cpdef peak_valley_pivots_detailed(double [:] X,
+                                  double up_thresh,
+                                  double down_thresh,
+                                  bint limit_to_finalized_segments,
+                                  bint use_eager_switching_for_non_final):
     """
     Find the peaks and valleys of a series.
 
@@ -115,17 +124,19 @@ cpdef peak_valley_pivots(double [:] X,
                 last_pivot_x = x
                 last_pivot_t = t
 
-    # if last_pivot_t == t_n-1:
-    #     pivots[last_pivot_t] = trend
-    # elif pivots[t_n-1] == 0:
-    #     pivots[t_n-1] = -trend
-    
-    # fix last point error 
-    if last_pivot_t > 0 and last_pivot_t < t_n-1:
-        pivots[last_pivot_t] = trend
-        pivots[t_n-1] = -trend
-    else:
-        pivots[t_n-1] = trend
+
+    if limit_to_finalized_segments:
+        if use_eager_switching_for_non_final:
+            if last_pivot_t > 0 and last_pivot_t < t_n-1:
+                pivots[last_pivot_t] = trend
+                pivots[t_n-1] = -trend
+            else:
+                pivots[t_n-1] = trend
+        else:
+            if last_pivot_t == t_n-1:
+                pivots[last_pivot_t] = trend
+            elif pivots[t_n-1] == 0:
+                pivots[t_n-1] = -trend
 
     return pivots
 
