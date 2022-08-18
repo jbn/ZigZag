@@ -1,7 +1,13 @@
 .ipynb_checkpoints/*
+.idea/
+htmlcov
+.coverage
 MANIFEST
 dist/
 *.pyc
 build/*
-ZigZag.iml
-.idea/*
+zigzag/*.so
+zigzag/*.html
+zigzag/*.c
+ZigZag.egg-info
+zigzag.egg-info

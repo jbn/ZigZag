@@ -1,4 +1,4 @@
-import numpy as np
+from zigzag.core import *
 
 # Numba can be a pain to install. If you do not have numba, the functions 
 # will be left in their original, uncompiled form. 

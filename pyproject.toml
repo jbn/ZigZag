@@ -1,0 +1,44 @@
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+    "Cython>=^0.29",
+    "numpy >=1.21.1",
+]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "zigzag"
+version = "0.3.2"
+readme = "README.md"
+homepage = "https://github.com/jbn/ZigZag"
+repository = "https://github.com/jbn/ZigZag"
+description = "Package for finding peaks and valleys of time series."
+authors = ["generativist <jbn@abreka.com>"]
+license = "BSD-3-Clause"
+packages = [{ include = "zigzag" }]
+include = [
+    { path = "zigzag/**/*.so", format = "wheel" },
+    { path = "zigzag/**/*.pyx" },
+    { path = "zigzag/**/*.pyd" },
+    "CHANGES.txt"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+numpy = ">=1.21.1"
+Cython = "^0.29"
+
+[tool.poetry.build]
+generate-setup-file = false
+script = "build.py"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pandas = ">=0.22,<2.0"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]

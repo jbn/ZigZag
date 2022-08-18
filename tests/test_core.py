@@ -1,59 +1,61 @@
-from unittest import TestCase
-
 import numpy as np
-from numpy.testing.utils import assert_array_equal, assert_array_almost_equal
+import pandas as pd
 
 import zigzag
+
+from unittest import TestCase
+from numpy.testing import assert_array_equal, assert_array_almost_equal
 from zigzag import PEAK, VALLEY
 
 
 class TestIdentifyInitialPivot(TestCase):
     def test_strictly_increasing(self):
         data = np.linspace(1, 2., 10)
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          VALLEY)
 
     def test_increasing_kinked(self):
         data = np.array([1.0, 0.99, 1.1])
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          PEAK)
 
     def test_strictly_increasing_under_threshold(self):
         data = np.linspace(1, 1.01, 10)
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          VALLEY)
 
     def test_increasing_under_threshold_kinked(self):
         data = np.array([1.0, 0.99, 1.02])
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          VALLEY)
 
     def test_strictly_decreasing(self):
         data = np.linspace(1, 0.5, 10)
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          PEAK)
 
     def test_decreasing_kinked(self):
         data = np.array([1.0, 1.01, 0.9])
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          VALLEY)
 
     def test_strictly_decreasing_under_threshold(self):
         data = np.linspace(1, 0.99, 10)
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          PEAK)
 
     def test_decreasing_under_threshold_kinked(self):
         data = np.array([1.0, 1.01, 0.99])
 
-        self.assertEqual(zigzag._identify_initial_pivot(data, 0.1, -0.1),
+        self.assertEqual(zigzag.identify_initial_pivot(data, 0.1, -0.1),
                          PEAK)
 
 
 class TestPeakValleyPivots(TestCase):
     def test_guard_against_common_threshold_value_mistake(self):
         data = np.array([1.0, 2.0, 3.0])
-        self.assertRaises(ValueError, zigzag.peak_valley_pivots, data, 0.1, 0.1)
+        self.assertRaises(ValueError, zigzag.peak_valley_pivots,
+                          data, 0.1, 0.1)
 
     def test_strictly_increasing(self):
         data = np.linspace(1, 10, 10)
@@ -140,11 +142,11 @@ class TestSegmentReturn(TestCase):
 class TestMaxDrawdown(TestCase):
     def test_strictly_increasing(self):
         data = np.linspace(1.0, 100.0, 10)
-        self.assertEquals(zigzag.max_drawdown(data), 0.0)
+        self.assertEqual(zigzag.max_drawdown(data), 0.0)
 
     def test_strictly_decreasing(self):
         data = np.linspace(100.0, 1.0, 10)
-        self.assertEquals(zigzag.max_drawdown(data), 0.99)
+        self.assertEqual(zigzag.max_drawdown(data), 0.99)
 
     def test_rise_fall_rise_drawdown(self):
         data = np.array([1.0, 1.05, 1.1, 1.0, 0.9, 1.5])
@@ -158,3 +160,9 @@ class TestPivotsToModes(TestCase):
         expected_result = np.array([1, -1, -1, -1, -1, 1, 1, 1, -1, 1, 1])
 
         assert_array_equal(result, expected_result)
+
+
+def test_peak_valley_pivots_pandas_compat():
+    df = pd.DataFrame({'X': np.array([1, 2, 3, 4])})
+    got = zigzag.peak_valley_pivots(df.X, 0.2, -0.2)
+    assert (got == np.array([-1, 0, 0, 1])).all()
