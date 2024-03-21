@@ -12,8 +12,8 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
 
 [tool.poetry]
-name = "zigzag"
-version = "0.3.2"
+name = "zigzag-reload"
+version = "0.3.3"
 readme = "README.md"
 homepage = "https://github.com/jbn/ZigZag"
 repository = "https://github.com/jbn/ZigZag"
