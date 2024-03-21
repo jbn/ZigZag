@@ -1,14 +1,19 @@
 [build-system]
 requires = [
     "poetry-core>=1.0.0",
-    "Cython>=^0.29",
+    "Cython>=0.29",
     "numpy >=1.21.1",
 ]
 build-backend = "poetry.core.masonry.api"
 
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
 [tool.poetry]
-name = "zigzag"
-version = "0.3.2"
+name = "zigzag-reload"
+version = "0.3.3"
 readme = "README.md"
 homepage = "https://github.com/jbn/ZigZag"
 repository = "https://github.com/jbn/ZigZag"
